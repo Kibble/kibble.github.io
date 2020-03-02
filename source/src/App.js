@@ -4,12 +4,16 @@ import './App.scss';
 import NavBar from './modules/layout/component/NavBar.component';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import News from './modules/app/component/News.component';
+import DailyUI from './modules/app/component/DailyUI';
 
 function App() {
     return <BrowserRouter>
         <div className="App">
             <NavBar />
             <Switch>
+                <Route path="/dailyui">
+                    <DailyUI />
+                </Route>
                 <Route path="/news">
                     <News />
                 </Route>
