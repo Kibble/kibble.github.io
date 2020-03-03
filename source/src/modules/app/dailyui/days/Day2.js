@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import VirtualScreen from '../../component/VirtualScreen';
+import validate from 'card-validator';
 
 // Color palette: https://www.colourlovers.com/palette/359978/w_o_r_d_l_e_s_s_.
 const primaryColor = '#CBe86B';
@@ -49,14 +50,23 @@ export const Hour1 = () => {
                     $500.00
                 </span>
             </div>
-            <LabeledTextField colored id="name" label="Name on card" />
-            <LabeledTextField colored id="cardNumber" label="Card number" />
+            <ValidatedTextField colored id="name" label="Name on card" />
+            <ValidatedTextField colored id="cardNumber" label="Card number" />
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <LabeledTextField colored id="expiry" label="Expiry date (MM/YY)" small />
-                { /* 4 digits for AmEx, 3 digits for everything else */}
-                <LabeledTextField colored id="code" label="Security code" small />
+                <ValidatedTextField
+                    colored
+                    id="expiry"
+                    label="Expiry date (MM/YY)"
+                    small
+                />
+                <ValidatedTextField
+                    colored
+                    id="code"
+                    label="Security code"
+                    small
+                />
             </div>
-            <LabeledTextField colored id="zip" label="ZIP/Postal code" />
+            <ValidatedTextField colored id="zip" label="ZIP/Postal code" />
             <Footer>
                 <Button colored label="Cancel" />
                 <Button colored label="Submit" />
@@ -83,6 +93,52 @@ export const Hour3 = () => {
 
 export const Empty = () => <VirtualScreen />;
 
+const ValidatedTextField = ({colored, id, label, small}) => {
+    const [isValid, setIsValid] = useState(true);
+
+    const check = ({target: {value}}) => {
+        switch (id) {
+            case 'expiry':
+                setIsValid(validate.expirationDate(value).isValid);
+                break;
+            case 'cardNumber':
+                setIsValid(validate.number(value).isValid);
+                break;
+            case 'code':
+                // 4 digits for AmEx, 3 digits for everything else
+                setIsValid(
+                    validate.cvv(value).isValid || validate.cvv(value, 4).isValid);
+                break;
+            case 'zip':
+                setIsValid(validate.postalCode(value).isValid);
+                break;  
+            default:
+                break;
+        }
+    }
+
+    return <div
+        style={{
+            display: 'flex', flexDirection: 'column',
+            alignItems: 'flex-start', paddingTop: '4px',
+            paddingBottom: '4px',
+            width: small ? '45%' : '100%',
+        }}
+    >
+        <label htmlFor={id}>{label}</label>
+        <input
+            id={id}
+            style={{
+                color: isValid ? backgroundColor : 'red',
+                fontSize: '24px',
+                backgroundColor: colored ? secondaryColor : 'white',
+                width: '100%',
+            }}
+            onChange={check}
+        />
+    </div>
+}
+
 const LabeledTextField = ({colored, id, label, small}) => {
     return <div
         style={{
@@ -96,10 +152,12 @@ const LabeledTextField = ({colored, id, label, small}) => {
         <input
             id={id}
             style={{
+                color: backgroundColor,
                 fontSize: '24px',
                 backgroundColor: colored ? secondaryColor : 'white',
                 width: '100%',
-            }} />
+            }}
+        />
     </div>
 }
 

@@ -35,7 +35,7 @@ const DailyUI = () => {
             <Cell size={12}>
                 <div style={{height: '100px'}} />
             </Cell>
-            <Daily title="002> Credit Card Checkout" Half={HalfHour} First={Empty} Second={Empty} Third={Hour3} />
+            <Daily title="002> Credit Card Checkout" Half={HalfHour} First={Hour1} Second={Empty} Third={Hour3} />
         </Grid>
     </div>;
 }
