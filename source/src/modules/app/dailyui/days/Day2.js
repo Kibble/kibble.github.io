@@ -21,16 +21,16 @@ export const HalfHour = () => {
                     $500.00
                 </span>
             </div>
-            <LabeledTextField colored id="name" label="Name on card" />
-            <LabeledTextField colored id="cardNumber" label="Card number" />
+            <LabeledTextField id="name" label="Name on card" />
+            <LabeledTextField id="cardNumber" label="Card number" />
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <LabeledTextField colored id="expiry" label="Expiry date (MM/YY)" small />
-                <LabeledTextField colored id="code" label="Security code" small />
+                <LabeledTextField id="expiry" label="Expiry date (MM/YY)" small />
+                <LabeledTextField id="code" label="Security code" small />
             </div>
-            <LabeledTextField colored id="zip" label="ZIP/Postal code" />
+            <LabeledTextField id="zip" label="ZIP/Postal code" />
             <Footer>
-                <Button colored label="Cancel" />
-                <Button colored label="Submit" />
+                <Button label="Cancel" />
+                <Button label="Submit" primary />
             </Footer>
         </VirtualScreen>
     );
@@ -50,26 +50,24 @@ export const Hour1 = () => {
                     $500.00
                 </span>
             </div>
-            <ValidatedTextField colored id="name" label="Name on card" />
-            <ValidatedTextField colored id="cardNumber" label="Card number" />
+            <ValidatedTextField id="name" label="Name on card" />
+            <ValidatedTextField id="cardNumber" label="Card number" />
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
                 <ValidatedTextField
-                    colored
                     id="expiry"
                     label="Expiry date (MM/YY)"
                     small
                 />
                 <ValidatedTextField
-                    colored
                     id="code"
                     label="Security code"
                     small
                 />
             </div>
-            <ValidatedTextField colored id="zip" label="ZIP/Postal code" />
+            <ValidatedTextField id="zip" label="ZIP/Postal code" />
             <Footer>
-                <Button colored label="Cancel" />
-                <Button colored label="Submit" />
+                <Button label="Cancel" />
+                <Button label="Submit" primary />
             </Footer>
         </VirtualScreen>
     );
@@ -93,7 +91,7 @@ export const Hour3 = () => {
 
 export const Empty = () => <VirtualScreen />;
 
-const ValidatedTextField = ({colored, id, label, small}) => {
+const ValidatedTextField = ({id, label, small}) => {
     const [isValid, setIsValid] = useState(true);
 
     const check = ({target: {value}}) => {
@@ -131,7 +129,7 @@ const ValidatedTextField = ({colored, id, label, small}) => {
             style={{
                 color: isValid ? backgroundColor : 'red',
                 fontSize: '24px',
-                backgroundColor: colored ? secondaryColor : 'white',
+                backgroundColor: secondaryColor,
                 width: '100%',
             }}
             onChange={check}
@@ -139,7 +137,7 @@ const ValidatedTextField = ({colored, id, label, small}) => {
     </div>
 }
 
-const LabeledTextField = ({colored, id, label, small}) => {
+const LabeledTextField = ({id, label, small}) => {
     return <div
         style={{
             display: 'flex', flexDirection: 'column',
@@ -154,18 +152,16 @@ const LabeledTextField = ({colored, id, label, small}) => {
             style={{
                 color: backgroundColor,
                 fontSize: '24px',
-                backgroundColor: colored ? secondaryColor : 'white',
+                backgroundColor: secondaryColor,
                 width: '100%',
             }}
         />
     </div>
 }
 
-const Button = ({colored, label}) => {
-    const color = label === 'Cancel' ? secondaryColor : primaryColor;
-
+const Button = ({label, primary}) => {
     const style = {
-        backgroundColor: colored ? color : '#CCCCCC',
+        backgroundColor: primary ? primaryColor : secondaryColor,
         border: 'none',
         color: backgroundColor,
         padding: '18px 24px 18px 24px',
@@ -174,6 +170,7 @@ const Button = ({colored, label}) => {
         cursor: 'pointer',
         fontWeight: 'bold',
     };
+
     return <button style={style}>{label}</button>;
 }
 
