@@ -1,8 +1,10 @@
 import React from 'react';
 
+import octokitty from '../../../img/octocat.png'
+
 const Home = () => {
     return <>
-        Home
+        <img src={octokitty} height="400px" alt="octokitty" />
     </>;
 }
 

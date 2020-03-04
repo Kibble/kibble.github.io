@@ -3,7 +3,9 @@ import {Grid, Cell} from 'react-md';
 import Design from './Design';
 import ChallengeHeader from './ChallengeHeader';
 import {Basic, Colored} from '../dailyui/days/Day1';
-import {Empty, HalfHour, Hour1, Hour2, Hour3} from '../dailyui/days/Day2';
+import HalfHour from '../dailyui/days/day2/Iteration1';
+import VirtualScreen from './VirtualScreen';
+import Hour1 from '../dailyui/days/day2/Iteration2';
 import '../../../App.scss';
 
 const DailyUI = () => {
@@ -35,10 +37,12 @@ const DailyUI = () => {
             <Cell size={12}>
                 <div style={{height: '100px'}} />
             </Cell>
-            <Daily title="002> Credit Card Checkout" Half={HalfHour} First={Hour1} Second={Empty} Third={Hour3} />
+            <Daily title="002> Credit Card Checkout" Half={HalfHour} First={Hour1} Second={Empty} />
         </Grid>
     </div>;
 }
+
+const Empty = () => <VirtualScreen />;
 
 const Daily = ({title, Half, First, Second, Third}) => {
     return <>
