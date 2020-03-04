@@ -4,7 +4,6 @@ import Design from './Design';
 import ChallengeHeader from './ChallengeHeader';
 import {Basic, Colored} from '../dailyui/days/Day1';
 import HalfHour from '../dailyui/days/day2/Iteration1';
-import VirtualScreen from './VirtualScreen';
 import Hour1 from '../dailyui/days/day2/Iteration2';
 import '../../../App.scss';
 
@@ -21,51 +20,54 @@ const DailyUI = () => {
             Perhaps by the end of it all, I'll end up with a half-decent UI component library.
         </Typography>
         <Grid style={{width: '100%'}}>
-            <Cell size={12}>
-                <ChallengeHeader>001> Sign Up</ChallengeHeader>
-            </Cell>
-            <Cell size={4}>
-                <Design title="1 Hour">
-                    <Basic />
-                </Design>
-            </Cell>
-            <Cell size={4}>
-                <Design title="90 Minutes">
-                    <Colored />
-                </Design>
-            </Cell>
-            <Cell size={12}>
-                <div style={{height: '100px'}} />
-            </Cell>
-            <Daily title="002> Credit Card Checkout" Half={HalfHour} First={Hour1} Second={Empty} />
+            <Daily
+                title="001> Sign Up"
+                designTitles={['60 Minutes', '90 Minutes']}
+                changeset={[['Header', 'Labeled text fields', 'Buttons', 'Layout'], ['Colors']]}
+                First={Basic} Second={Colored} 
+            />
+            <Spacer />
+            <Daily
+                title="002> Credit Card Checkout"
+                designTitles={['30 Minutes', '60 Minutes']}
+                changeset={[['Layout', 'Colors'], ['Simple Validation']]}
+                First={HalfHour} Second={Hour1}
+            />
         </Grid>
     </div>;
 }
 
-const Empty = () => <VirtualScreen />;
+const Spacer = () => <Cell size={12}><div style={{height: '40px'}} /></Cell>;
 
-const Daily = ({title, Half, First, Second, Third}) => {
-    return <>
+const Daily = ({changeset, designTitles, title, First, Second}) => (
+    <>
         <Cell size={12}>
             <ChallengeHeader>{title}</ChallengeHeader>
         </Cell>
         <Cell size={4}>
-            <Design title="30 Minutes">
-                <Half />
-            </Design>
-        </Cell>
-        <Cell size={4}>
-            <Design title="1 Hour">
+            <Design title={designTitles[0]}>
                 <First />
+                <Changes changes={changeset[0]} />
             </Design>
         </Cell>
         <Cell size={4}>
-            <Design title="2 Hours">
+            <Design title={designTitles[1]}>
                 <Second />
+                <Changes changes={changeset[1]} />
             </Design>
         </Cell>
-    </>;
-}
+    </>
+);
+
+const Changes = ({changes}) => (
+    <div style={{padding: '0px 32px'}}>
+        <Typography>
+            <ul>
+                {changes.map((change) => <li>{change}</li>)}
+            </ul>
+        </Typography>
+    </div>
+);
 
 const PageTitle = ({children}) => (
     <div style={{padding: '16px'}}>
