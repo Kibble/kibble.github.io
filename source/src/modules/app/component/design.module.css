@@ -1,0 +1,15 @@
+.designDiv {
+    margin-bottom: 24px;
+}
+
+.designSpan {
+    font-weight: bold;
+    font-size: 48px;
+    font-family: Oxanium;
+}
+
+@media (max-width: 672px) {
+    .designSpan {
+        font-size: 32px;
+    }
+}

@@ -1,0 +1,15 @@
+.page {
+    width: 1200px;
+    margin: auto;
+}
+
+.grid {
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+    .page {
+        width: 90vw;
+        margin: auto;
+    }
+}

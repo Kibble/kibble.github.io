@@ -1,0 +1,9 @@
+.screenTitle {
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.screenTitle__text {
+    font-size: 32px;
+    font-weight: bold;
+}

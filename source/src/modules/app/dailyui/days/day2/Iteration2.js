@@ -4,16 +4,20 @@ import TextField, {fieldType} from '../../../../../ui/component/TextField';
 import Button from './ui/Button';
 import Footer from './ui/Footer';
 
+import styles from './iteration2.module.css';
+
 // Color palette: https://www.colourlovers.com/palette/359978/w_o_r_d_l_e_s_s_.
-const primaryColor = '#CBe86B';
+// const primaryColor = '#CBe86B';
 const secondaryColor = '#F2E9E1';
 const backgroundColor = '#1C140D';
 
 const Hour1 = () => {
     return (
         <VirtualScreen customStyle={{color: secondaryColor, backgroundColor: backgroundColor}}>
-            <div style={{marginBottom: '24px', width: '100%'}}>
-                <span style={{fontWeight: 'bold', fontSize: '32px'}}>
+            <div className={styles.screenTitle}>
+            {/* <div style={{marginBottom: '24px', width: '100%'}}> */}
+                <span className={styles.screenTitle__text}>
+                {/* <span style={{fontWeight: 'bold', fontSize: '32px'}}> */}
                     Checkout
                 </span>
             </div>

@@ -6,20 +6,24 @@ import {Basic, Colored} from '../dailyui/days/Day1';
 import HalfHour from '../dailyui/days/day2/Iteration1';
 import Hour1 from '../dailyui/days/day2/Iteration2';
 import '../../../App.scss';
+import Paragraph from '../../layout/component/Paragraph';
+import PageTitle from '../../layout/component/PageTitle';
+
+import styles from './dailyUi.module.css';
 
 const DailyUI = () => {
-    return <div style={{width: '1200px', margin: 'auto'}}>
+    return <div className={styles.page}>
         <PageTitle>DailyUI Challenges</PageTitle>
-        <Typography>
+        <Paragraph>
             <a href="https://www.dailyui.co/" style={{fontWeight: 'bold', textDecoration: 'underline'}}>DailyUI</a> has a 100-day design challenge, with a different prompt each day.
             Since I am a programmer dabbling in design rather than a designer dabbling in code, I'm tackling this a little differently.
             Instead of a mockup per day, I'll iterate on a semi-functional, interactive prototype of each daily prompt.
-        </Typography>
-        <Typography>
+        </Paragraph>
+        <Paragraph>
             Hopefully as time goes by, I'll be putting out higher-quality or more featureful prototypes within the time constraints.
             Perhaps by the end of it all, I'll end up with a half-decent UI component library.
-        </Typography>
-        <Grid style={{width: '100%'}}>
+        </Paragraph>
+        <Grid className={styles.grid}>
             <Daily
                 title="001> Sign Up"
                 designTitles={['60 Minutes', '90 Minutes']}
@@ -61,29 +65,14 @@ const Daily = ({changeset, designTitles, title, First, Second}) => (
 
 const Changes = ({changes}) => (
     <div style={{padding: '0px 32px'}}>
-        <Typography>
+        <Paragraph>
             <ul>
                 {changes.map((change) => <li>{change}</li>)}
             </ul>
-        </Typography>
+        </Paragraph>
     </div>
 );
 
-const PageTitle = ({children}) => (
-    <div style={{padding: '16px'}}>
-        <span style={{fontFamily: 'Oxanium', fontSize: '56px'}}>
-            {children}
-        </span>
-    </div>
-);
 
-const Typography = ({children}) => (
-    <div style={{textAlign: 'left', margin: '40px auto', width: '1200px'}}>
-        <span style={{
-            fontFamily: 'Merriweather', fontSize: '24px'}}>
-            {children}
-        </span>
-    </div>
-);
 
 export default DailyUI;

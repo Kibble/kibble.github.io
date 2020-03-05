@@ -1,12 +1,10 @@
 import React from 'react';
 
+import styles from './challengeHeader.module.css';
+
 const ChallengeHeader = ({children}) => (
-    <div style={{display: 'flex'}}>
-        <span style={{
-            fontSize: '48px',
-            fontWeight: 'bold',
-            fontFamily: 'Oxanium',
-        }}>
+    <div className={styles.challengeHeaderDiv}>
+        <span className={styles.challengeHeaderSpan}>
             {children}
         </span>
     </div>

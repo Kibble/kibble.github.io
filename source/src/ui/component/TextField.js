@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import validator from 'card-validator';
 
-const primaryColor = '#CBe86B';
+// const primaryColor = '#CBe86B';
 const secondaryColor = '#F2E9E1';
 const backgroundColor = '#1C140D';
 

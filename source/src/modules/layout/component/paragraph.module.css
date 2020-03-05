@@ -1,0 +1,24 @@
+
+
+.paragraphDiv {
+    text-align: left;
+    margin: 40px auto;
+    width: 1200px;
+}
+
+.paragraphSpan {
+    font-family: Merriweather;
+    font-size: 24px;
+}
+
+@media (max-width: 480px) {
+    .paragraphDiv {
+        margin: auto;
+        text-align: left;
+        width: calc(100% - 16px);
+        /* width: 90vw; */
+        /* width: 420px; */
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+}

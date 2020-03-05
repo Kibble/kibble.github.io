@@ -1,56 +1,43 @@
 import React from 'react';
+import Paragraph from '../../layout/component/Paragraph';
+import PageTitle from '../../layout/component/PageTitle';
+
+import styles from './experience.module.css';
 
 const Experience = () => {
-    return <div style={{width: '1200px', margin: 'auto'}}>
+    return <div className={styles.experience}>
         <PageTitle>Experience</PageTitle>
         <SectionHeader>Programming Languages</SectionHeader>
-        <Typography>
+        <Paragraph>
             <ul>
                 <li>React - 3 years</li>
                 <li>C# - 4 years</li>
             </ul>
-        </Typography>
+        </Paragraph>
         <SectionHeader>Database Technologies</SectionHeader>
-        <Typography>
+        <Paragraph>
             <ul>
                 <li>Liquibase</li>
                 <li>MySQL</li>
                 <li>SQL Server</li>
                 <li>SQL Server Reporting Services</li>
             </ul>
-        </Typography>
+        </Paragraph>
         <SectionHeader>Other Skills</SectionHeader>
-        <Typography>
+        <Paragraph>
             <ul>
                 <li>Scrum Master</li>
                 <li>Git</li>
                 <li>UI/UX</li>
             </ul>
-        </Typography>
+        </Paragraph>
     </div>;
 }
 
-const PageTitle = ({children}) => (
-    <div style={{padding: '16px'}}>
-        <span style={{fontFamily: 'Oxanium', fontSize: '56px'}}>
-            {children}
-        </span>
-    </div>
-);
-
-const Typography = ({children}) => (
-    <div style={{textAlign: 'left', margin: '40px auto', width: '1200px'}}>
-        <span style={{
-            fontFamily: 'Merriweather', fontSize: '24px'}}>
-            {children}
-        </span>
-    </div>
-);
 
 const SectionHeader = ({children}) => (
-    <div style={{textAlign: 'left', margin: '40px auto', width: '1200px'}}>
-        <span style={{
-            fontFamily: 'Merriweather', fontSize: '28px'}}>
+    <div className={styles.sectionHeaderDiv}>
+        <span className={styles.sectionHeaderSpan}>
             {children}
         </span>
     </div>

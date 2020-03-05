@@ -1,0 +1,18 @@
+.pageTitleDiv {
+    padding: 16px;
+}
+
+.pageTitleSpan {
+    font-family: Oxanium;
+    font-size: 56px;
+}
+
+@media (max-width: 672px) {
+    .pageTitleDiv {
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+    .pageTitleSpan {
+        font-size: 36px;
+    }
+}

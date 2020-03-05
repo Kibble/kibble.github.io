@@ -1,0 +1,29 @@
+.experience {
+    width: 1200px;
+    margin: auto;
+}
+
+.sectionHeaderDiv {
+    text-align: left;
+    margin: 40px auto;
+    width: 1200px;
+}
+
+.sectionHeaderSpan {
+    font-family: Merriweather;
+    font-size: 28px;
+}
+
+@media (max-width: 672px) {
+    .experience {
+        width: 90vw;
+    }
+
+    .sectionHeaderDiv {
+        width: 90vw;
+    }
+
+    .sectionHeaderSpan {
+        font-size: 26px;
+    }
+}

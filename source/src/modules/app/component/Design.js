@@ -1,9 +1,11 @@
 import React from 'react';
 
+import styles from './design.module.css';
+
 const Design = ({children, title}) => (
     <>
-        <div style={{marginBottom: '24px'}}>
-            <span style={{fontWeight: 'bold', fontSize: '48px', fontFamily: 'Oxanium'}}>{title}</span>
+        <div className={styles.designDiv}>
+            <span className={styles.designSpan}>{title}</span>
         </div>
         {children}
     </>

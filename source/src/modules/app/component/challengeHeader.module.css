@@ -1,0 +1,19 @@
+.challengeHeaderDiv {
+    display: flex;
+}
+
+.challengeHeaderSpan {
+    font-size: 48px;
+    font-weight: bold;
+    font-family: Oxanium;
+}
+
+@media (max-width: 672px) {
+    .challengeHeaderDiv {
+        border-bottom: 1px solid #555555;
+    }
+
+    .challengeHeaderSpan {
+        font-size: 32px;
+    }
+}
