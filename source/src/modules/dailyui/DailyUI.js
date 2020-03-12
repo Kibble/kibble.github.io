@@ -8,6 +8,7 @@ import Hour1 from './days/day2/Iteration2';
 import '../../App.scss';
 import Paragraph from '../layout/component/Paragraph';
 import PageTitle from '../layout/component/PageTitle';
+import Day4 from './days/day4';
 
 import styles from './styles/dailyUi.module.css';
 
@@ -37,6 +38,8 @@ const DailyUI = () => {
                 changeset={[['Layout', 'Colors'], ['Simple Validation']]}
                 First={HalfHour} Second={Hour1}
             />
+            <Spacer />
+            <Day4 />
         </Grid>
     </div>;
 }
