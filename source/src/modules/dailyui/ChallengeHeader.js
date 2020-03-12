@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './challengeHeader.module.css';
+import styles from './styles/challengeHeader.module.css';
 
 const ChallengeHeader = ({children}) => (
     <div className={styles.challengeHeaderDiv}>

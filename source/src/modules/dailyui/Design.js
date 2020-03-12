@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './design.module.css';
+import styles from './styles/design.module.css';
 
 const Design = ({children, title}) => (
     <>

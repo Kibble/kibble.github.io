@@ -1,6 +1,6 @@
 import React from 'react';
-import VirtualScreen from '../../../component/VirtualScreen';
-import TextField, {fieldType} from '../../../../../ui/component/TextField';
+import VirtualScreen from '../../VirtualScreen';
+import TextField, {fieldType} from './ui/TextField';
 import Button from './ui/Button';
 import Footer from './ui/Footer';
 
@@ -15,9 +15,7 @@ const Hour1 = () => {
     return (
         <VirtualScreen customStyle={{color: secondaryColor, backgroundColor: backgroundColor}}>
             <div className={styles.screenTitle}>
-            {/* <div style={{marginBottom: '24px', width: '100%'}}> */}
                 <span className={styles.screenTitle__text}>
-                {/* <span style={{fontWeight: 'bold', fontSize: '32px'}}> */}
                     Checkout
                 </span>
             </div>

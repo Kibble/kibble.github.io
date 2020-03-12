@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import validator from 'card-validator';
 
+import styles from './textField.module.css';
+
 // const primaryColor = '#CBe86B';
 const secondaryColor = '#F2E9E1';
 const backgroundColor = '#1C140D';
@@ -39,21 +41,17 @@ const LabeledTextField = ({id, label, small, type}) => {
     }
     
     return <div
+        className={styles.textFieldDiv}
         style={{
-            display: 'flex', flexDirection: 'column',
-            alignItems: 'flex-start', paddingTop: '4px',
-            paddingBottom: '4px',
             width: small ? '45%' : '100%',
         }}
     >
         <label htmlFor={id}>{label}</label>
         <input
             id={id}
+            className={styles.textFieldInput}
             style={{
                 color: isValid ? backgroundColor : 'red',
-                fontSize: '24px',
-                backgroundColor: secondaryColor,
-                width: '100%',
             }}
             onChange={check}
         />

@@ -1,5 +1,5 @@
 import React from 'react';
-import VirtualScreen from '../../../component/VirtualScreen';
+import VirtualScreen from '../../VirtualScreen';
 import Button from './ui/Button';
 import Footer from './ui/Footer';
 

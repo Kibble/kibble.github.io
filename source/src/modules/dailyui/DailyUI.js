@@ -2,14 +2,14 @@ import React from 'react';
 import {Grid, Cell} from 'react-md';
 import Design from './Design';
 import ChallengeHeader from './ChallengeHeader';
-import {Basic, Colored} from '../dailyui/days/Day1';
-import HalfHour from '../dailyui/days/day2/Iteration1';
-import Hour1 from '../dailyui/days/day2/Iteration2';
-import '../../../App.scss';
-import Paragraph from '../../layout/component/Paragraph';
-import PageTitle from '../../layout/component/PageTitle';
+import {Basic, Colored} from './days/Day1';
+import HalfHour from './days/day2/Iteration1';
+import Hour1 from './days/day2/Iteration2';
+import '../../App.scss';
+import Paragraph from '../layout/component/Paragraph';
+import PageTitle from '../layout/component/PageTitle';
 
-import styles from './dailyUi.module.css';
+import styles from './styles/dailyUi.module.css';
 
 const DailyUI = () => {
     return <div className={styles.page}>
@@ -65,14 +65,14 @@ const Daily = ({changeset, designTitles, title, First, Second}) => (
 
 const Changes = ({changes}) => (
     <div style={{padding: '0px 32px'}}>
-        <Paragraph>
-            <ul>
-                {changes.map((change) => <li>{change}</li>)}
-            </ul>
-        </Paragraph>
+        <div style={{textAlign: 'left', margin: '40px auto'}}>
+            <span style={{fontFamily: 'Merriweather', fontSize: '24px'}}>
+                <ul>
+                    {changes.map((change) => <li>{change}</li>)}
+                </ul>
+            </span>
+        </div>
     </div>
 );
-
-
 
 export default DailyUI;
