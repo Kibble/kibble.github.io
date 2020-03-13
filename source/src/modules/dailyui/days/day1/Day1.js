@@ -1,6 +1,5 @@
 import React from 'react';
-
-import VirtualScreen from '../VirtualScreen';
+import VirtualScreen from '../../VirtualScreen';
 
 export const Basic = () => {
     return (
